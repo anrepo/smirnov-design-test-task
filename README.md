@@ -1,0 +1,1 @@
+# smirnov-design-test-task
