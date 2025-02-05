@@ -1,0 +1,44 @@
+$font-family-list: ('AvenirNextCyr', 'TTRunsTrial');
+
+$fontFaceProps: (
+	(
+		font-name: nth($font-family-list, 1),
+		generateClasses: true,
+		links: (
+			normal: (
+				100: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Thin',
+				200: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-UltraLight',
+				300: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Light',
+				400: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Regular',
+				500: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Medium',
+				600: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Demi',
+				700: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Bold',
+				900: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Heavy',
+			),
+			italic: (
+				100: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-ThinItalic',
+				200: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-UltraLightIt',
+				300: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-LightItalic',
+				400: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-Italic',
+				500: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-MediumItalic',
+				600: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-DemiItalic',
+				700: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-BoldItalic',
+				900: '../fonts/' + nth($font-family-list, 1) + '/' + nth($font-family-list, 1) + '-HeavyItalic'
+			)
+		)
+	),
+	(
+		font-name: nth($font-family-list, 2),
+		generateClasses: true,
+		links: (
+			normal: (
+				400: '../fonts/' + nth($font-family-list, 2) + '/' + nth($font-family-list, 2) + '-Regular',
+			),
+			italic: (
+				400: '../fonts/' + nth($font-family-list, 2) + '/' + nth($font-family-list, 2) + '-Italic',
+			)
+		)
+	)
+);
+
+@include generate-fontFace-list($fontFaceProps);

@@ -1,0 +1,9 @@
+extends pug/template
+
+prepend vars
+	- title = 'ТЗ'
+	- description = 'Тестовое задание по работе с JavaScript'
+
+block body-content
+	main
+		include pug/pages/home

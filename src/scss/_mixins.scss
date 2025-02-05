@@ -1,0 +1,43 @@
+@mixin font-face($url, $font-family, $font-weight, $font-style) {
+	@font-face {
+		font-family: $font-family;
+		src: local($font-family),
+			url($url + ".woff2") format("woff2"),
+			url($url + ".woff") format("woff");
+		font-weight: $font-weight;
+		font-style: $font-style;
+		font-display: swap;
+	}
+}
+
+@mixin font-face-list($ff-name, $data-font) {
+	@each $font-style, $font-style-inner in $data-font {
+		@each $font-weight, $url in $font-style-inner {
+			@include font-face($url, $ff-name, $font-weight, $font-style);
+		}
+	}
+}
+
+@mixin classes-for-fonts($ff-name, $data-font) {
+	@each $font-style, $font-style-inner in $data-font {
+		@each $font-weight, $url in $font-style-inner {
+			.ff-#{$ff-name}--#{$font-style}-#{$font-weight} {
+				font-family: $ff-name, sans-serif;
+				font-style: $font-style;
+				font-weight: $font-weight;
+			}
+		}
+	}
+}
+
+@mixin generate-fontFace-list($props) {
+	@each $item in $props {
+		@include font-face-list(map_get($item, font-name), map_get($item, links));
+	}
+
+	@each $item in $props {
+		@if map_get($item, generateClasses) {
+			@include classes-for-fonts(map_get($item, font-name), map_get($item, links));
+		}
+	}
+}

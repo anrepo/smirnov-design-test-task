@@ -1,0 +1,64 @@
+:root {
+  --color-text-main: #{$color-main-dark};
+  --bg-main: #{$color-main-light};
+}
+
+body {
+  font-family: "AvenirNextCyr", sans-serif;
+  color: var(--color-text-main);
+  background-color: var(--bg-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.align--center {
+  text-align: center;
+}
+
+.page--home {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+h1 {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+table {
+  width: 100%;
+
+  select {
+    width: 100%;
+  }
+}
+
+.grid {
+  display: grid;
+  row-gap: 0.3rem;
+  column-gap: 0.3rem;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  margin-bottom: 1rem;
+
+  &-cell {
+    display: flex;
+
+    &--head {
+      font-style: italic;
+    }
+  }
+
+  input,
+  select {
+    flex: 1;
+  }
+}
+
+.table-controller {
+  display: flex;
+  column-gap: 0.3rem;
+  justify-content: flex-end;
+  padding: 0.25rem;
+}
