@@ -10,6 +10,44 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.color {
+	&--white {
+		background-color: white;
+
+		input,
+		select {
+			background-color: white;
+		}
+	}
+
+	&--yellow {
+		background-color: yellow;
+
+		input,
+		select {
+			background-color: yellow;
+		}
+	}
+
+	&--green {
+		background-color: green;
+
+		input,
+		select {
+			background-color: green;
+		}
+	}
+
+	&--red {
+		background-color: red;
+
+		input,
+		select {
+			background-color: red;
+		}
+	}
+}
+
 .align--center {
   text-align: center;
 }
@@ -46,6 +84,7 @@ table {
     display: flex;
 
     &--head {
+      display: flex;
       font-style: italic;
     }
   }

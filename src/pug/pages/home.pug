@@ -1,21 +1,24 @@
+//- 0 - пустое значение
+//- 1 - значение "да"
+//- 2 - значение "нет"
 -
 	data = [
 		{
 			surname: 'Васильев',
 			name: 'Семен',
-			qualityOne: null,
-			qualityTwo: false
+			qualityOne: 2,
+			qualityTwo: 2
 		},
 		{
 			surname: 'Антонов',
 			name: 'Денис',
 			qualityOne: 1,
-			qualityTwo: 0
+			qualityTwo: 2
 		},
 		{
 			surname: 'Иванов',
 			name: 'Кузьма',
-			qualityOne: 0,
+			qualityOne: 2,
 			qualityTwo: 1
 		},
 		{
@@ -27,14 +30,20 @@
 		{
 			surname: '',
 			name: 'Дмитрий',
-			qualityOne: 0,
+			qualityOne: 2,
+			qualityTwo: 2
+		},
+		{
+			surname: 'Савинков',
+			name: '',
+			qualityOne: 1,
 			qualityTwo: 0
 		},
 		{
 			surname: '',
-			name: '',
+			name: 'Василий',
 			qualityOne: 0,
-			qualityTwo: 0
+			qualityTwo: 2
 		}
 	]
 
@@ -42,52 +51,11 @@
 	h1.align--center.ff-TTRunsTrial--normal-400 #[span Тестовое задание по работе с JavaScript]
 
 	form#table-form(action="" method="get")
-		//- table
-		//- 	thead
-		//- 		tr
-		//- 			td Фамилия
-		//- 			td Имя
-		//- 			td Оценка 1
-		//- 			td Оценка 2
-		//- 	tbody
-		//- 		tr
-		//- 			td
-		//- 				input.surname(type="text", name="")
-		//- 			td
-		//- 				input.name(type="text", name="")
-		//- 			td
-		//- 				select.evaluate-1(name="")
-		//- 					option(value="") 
-		//- 					option(value="1") да
-		//- 					option(value="0") нет
-		//- 			td
-		//- 				select.evaluate-2(name="")
-		//- 					option(value="") 
-		//- 					option(value="1") да
-		//- 					option(value="0") нет
-
-		//- br
-
 		.grid
-			.grid-cell.grid-cell--head Фамилия
-			.grid-cell.grid-cell--head Имя
-			.grid-cell.grid-cell--head Оценка 1
-			.grid-cell.grid-cell--head Оценка 2
-
-			//- .grid-cell
-			//- 	input.surname(type="text", name="Васильев")
-			//- .grid-cell
-			//- 	input.name(type="text", name="Семен")
-			//- .grid-cell
-			//- 	select.quality-1(name="")
-			//- 		option(value="") 
-			//- 		option(value="1") да
-			//- 		option(value="0") нет
-			//- .grid-cell
-			//- 	select.quality-2(name="")
-			//- 		option(value="") 
-			//- 		option(value="1") да
-			//- 		option(value="0") нет
+			.grid-cell--head Фамилия
+			.grid-cell--head Имя
+			.grid-cell--head Оценка 1
+			.grid-cell--head Оценка 2
 
 			each val, key in data
 				.grid-cell
@@ -95,15 +63,33 @@
 				.grid-cell
 					input.name(type="text" name="name" value=val.name)
 				.grid-cell
-					select.quality-1(name="quality-1")
-						option(value="") 
-						option(value="1" selected=val.qualityOne ? 'selected' : null) да
-						option(value="0" selected=val.qualityOne ? null : 'selected') нет
+					select.quality-1(name="qualityOne")
+						if val.qualityOne === 0
+							option(value="0" selected='selected')
+						else
+							option(value="0")
+						if val.qualityOne === 1
+							option(value="1" selected='selected') да
+						else
+							option(value="1") да
+						if val.qualityOne === 2
+							option(value="2" selected='selected') нет
+						else
+							option(value="2") нет
 				.grid-cell
-					select.quality-2(name="quality-2")
-						option(value="") 
-						option(value="1" selected=val.qualityTwo ? 'selected' : null) да
-						option(value="0" selected=val.qualityTwo ? null : 'selected') нет
+					select.quality-2(name="qualityTwo")
+						if val.qualityTwo === 0
+							option(value="0" selected='selected')
+						else
+							option(value="0")
+						if val.qualityTwo === 1
+							option(value="1" selected='selected') да
+						else
+							option(value="1") да
+						if val.qualityTwo === 2
+							option(value="2" selected='selected') нет
+						else
+							option(value="2") нет
 
 	.table-controller
 		input#counter(type="number" min="1" max="50" value="1")
